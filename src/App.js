@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function App() {
+    const [kngoplnrate, setkngoplnrate] = useState(0);
+    const [kngusdtrate, setkngusdtrate] = useState(0);
+    const [usdtoplnrate, setusdtoplnrate] = useState(0);
+
+    const getData = async () => {
+        const { data : { items } } = await axios.post('https://trade.kanga.exchange/api/markets');
+        console.log(items);
+    }
+
+    useEffect(() => {
+        getData();
+    })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <p>{`Kurs KNG/oPLN: ${kngoplnrate}`}</p>
+        <p>{`Kurs KNG/USDT: ${kngusdtrate}`}</p>
+        <p>{`Kurs USDT/oPLN: ${usdtoplnrate}`}</p>
     </div>
   );
 }
