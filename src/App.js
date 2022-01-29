@@ -156,7 +156,7 @@ const App = ({ classes }) => {
     console.log(`Wykonano: ${orderSplitterProcessCounter}/${ordersList ? ordersList.length : '0'}`);
 
     const getData = async () => {
-        const { data: { items } } = await axios.post('api/markets');
+        const { data: { items } } = await axios.post('/api/markets');
         const markets = items.reduce((acc, item) => {
             if (item.id === 'KNG-oPLN' || item.id === 'KNG-USDT' || item.id === 'USDT-oPLN') {
                 acc[item.id] = item;
@@ -177,7 +177,7 @@ const App = ({ classes }) => {
 
         const load = async () => { // We need to wrap the loop into an async function for this to work
             for (let i = 0; i < ordersList.length; i++) {
-                const { data } = axios.post('api/user/order/create', ordersList[i], { headers: headers })
+                const { data } = axios.post('/api/user/order/create', ordersList[i], { headers: headers })
                 setOrderSplitterProcessCounter(i+1)
                 await timer(parseInt(requestTimeout));
             }
@@ -236,7 +236,7 @@ const App = ({ classes }) => {
             'Content-Type': 'application/json',
             'auth': auth
         }
-        const { data } = await axios.post(`api/user/order/list`, {}, { headers: headers })
+        const { data } = await axios.post(`/api/user/order/list`, {}, { headers: headers })
         console.log(data);
         setUserOrdersList(data.items);
     };
@@ -250,7 +250,7 @@ const App = ({ classes }) => {
 
         const load = async () => { // We need to wrap the loop into an async function for this to work
             for (let i = 0; i < userOrdersList.length; i++) {
-                const { data } = axios.post('api/user/order/cancel', { orderId: userOrdersList[i].id }, { headers: headers })
+                const { data } = axios.post('/api/user/order/cancel', { orderId: userOrdersList[i].id }, { headers: headers })
                 setOrderSplitterProcessCounter(i+1)
                 await timer(parseInt(requestTimeout));
             }
@@ -322,10 +322,10 @@ const App = ({ classes }) => {
     useEffect(() => {
         getData();
         readConfigFromLocalStorage();
-        // const interval = setInterval(() => {
-        //     getData();
-        // }, 8000);
-        // return clearInterval(interval)
+        const interval = setInterval(() => {
+            getData();
+        }, 8000);
+        return clearInterval(interval)
     }, [])
 
     if (!rates) return null;
