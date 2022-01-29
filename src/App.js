@@ -175,7 +175,8 @@ const App = ({ classes }) => {
         }
         const timer = ms => new Promise(res => setTimeout(res, ms))
 
-        const load = async () => { // We need to wrap the loop into an async function for this to work
+        const load = async () => { // We need to wrap
+            console.log('load');// the loop into an async function for this to work
             for (let i = 0; i < ordersList.length; i++) {
                 const { data } = axios.post('/api/user/order/create', ordersList[i], { headers: headers })
                 setOrderSplitterProcessCounter(i+1)
