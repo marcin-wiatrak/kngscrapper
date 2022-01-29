@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/"
-  to = "https://google.com"
+  from = "api/"
+  to = "https://trade.kanga.exchange/api"
   status = 200
   force = true
