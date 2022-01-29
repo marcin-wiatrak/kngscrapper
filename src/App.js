@@ -15,125 +15,121 @@ import clsx from "clsx";
 import {Autorenew} from "@mui/icons-material";
 import {withStyles} from '@mui/styles';
 
-const styles = theme => {
-    console.log(theme);
-    return {
-        main: {
-            padding: 16,
-        },
-        ratesRow: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-        },
-        divider: {
-            margin: '8px 0 16px 0 !important'
-        },
-        splitterControls: {
-            display: "flex",
-            flexDirection: "column",
-            '& > *': {
-                marginBottom: '12px !important',
-            }
-        },
-        splitterInputWithSelect: {
-            display: 'flex',
-            alignItems: 'center',
-            gap: 15,
-            justifyContent: "space-between",
-        },
-        splitterActions: {
-            display: 'flex',
-            justifyContent: "space-between",
-        },
-        splitterSummaryContainer: {
-            display: 'flex',
-            flexDirection: 'column',
-            maxHeight: 500,
-            overflow: 'auto',
-            marginTop: 24,
-            justifyContent: "center",
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-            boxShadow: theme.palette.primary.main,
-            boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
-            borderRadius: 10,
-        },
-        splitterSummaryRow: {
-            width: '80%',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: '20px 1fr 1fr 1fr',
-            '& > p:nth-child(2)': {
-                textAlign: 'center',
-            },
-            '& > p:nth-child(4)': {
-                textAlign: 'right',
-            },
-            '& > p:nth-child(3)': {
-                textAlign: 'center',
-            },
-        },
-        splitterSummaryHeader: {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gridGap: '15px',
-            alignItems: 'start',
-        },
-        splitterSummarySingleHeader: {
-            gridTemplateColumns: '1fr',
-        },
-        splitterSummaryHeaderField: {
+const styles = {
+    main: {
+        padding: 16,
+    },
+    ratesRow: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    divider: {
+        margin: '8px 0 16px 0 !important'
+    },
+    splitterControls: {
+        display: "flex",
+        flexDirection: "column",
+        '& > *': {
+            marginBottom: '12px !important',
+        }
+    },
+    splitterInputWithSelect: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 15,
+        justifyContent: "space-between",
+    },
+    splitterActions: {
+        display: 'flex',
+        justifyContent: "space-between",
+    },
+    splitterSummaryContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        maxHeight: 500,
+        overflow: 'auto',
+        marginTop: 24,
+        justifyContent: "center",
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+        borderRadius: 10,
+    },
+    splitterSummaryRow: {
+        width: '80%',
+        margin: '0 auto',
+        display: 'grid',
+        gridTemplateColumns: '20px 1fr 1fr 1fr',
+        '& > p:nth-child(2)': {
             textAlign: 'center',
-            padding: 16,
-            border: `2px solid rgba(0, 0, 0, 0.2)`,
-            boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
-            borderRadius: 10,
         },
-        splitterSummaryHeaderFieldAmount: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            '& > p': {
-                margin: '0 8px',
-            },
+        '& > p:nth-child(4)': {
+            textAlign: 'right',
         },
-        splitterProcessingOverlay: {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 10,
-            background: 'linear-gradient(to bottom, rgba(62,153,62,0.57) 0%, rgba(62,153,62,0.47) 100%)',
-            backdropFilter: 'blur(1px)',
-            zIndex: 100,
-            // display: 'none',
+        '& > p:nth-child(3)': {
+            textAlign: 'center',
         },
+    },
+    splitterSummaryHeader: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gridGap: '15px',
+        alignItems: 'start',
+    },
+    splitterSummarySingleHeader: {
+        gridTemplateColumns: '1fr',
+    },
+    splitterSummaryHeaderField: {
+        textAlign: 'center',
+        padding: 16,
+        border: `2px solid rgba(0, 0, 0, 0.2)`,
+        boxShadow: "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+        borderRadius: 10,
+    },
+    splitterSummaryHeaderFieldAmount: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& > p': {
+            margin: '0 8px',
+        },
+    },
+    splitterProcessingOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        background: 'linear-gradient(to bottom, rgba(62,153,62,0.57) 0%, rgba(62,153,62,0.47) 100%)',
+        backdropFilter: 'blur(1px)',
+        zIndex: 100,
+        // display: 'none',
+    },
 
-        splitterProcessingIcon: {
-            fontSize: '20vw !important',
-            color: '#ffffff',
+    splitterProcessingIcon: {
+        fontSize: '20vw !important',
+        color: '#ffffff',
+        transform: 'rotate(0deg)',
+        animation: '$icon 3s linear infinite',
+    },
+    '@keyframes icon': {
+        'from': {
             transform: 'rotate(0deg)',
-            animation: '$icon 3s linear infinite',
         },
-        '@keyframes icon': {
-            'from': {
-                transform: 'rotate(0deg)',
-            },
-            'to': {
-                transform: 'rotate(360deg)',
-            },
+        'to': {
+            transform: 'rotate(360deg)',
         },
-        config: {
-            '& > *': {
-              marginBottom: '12px !important',
-            },
+    },
+    config: {
+        '& > *': {
+          marginBottom: '12px !important',
         },
-    }
+    },
 };
 
 const App = ({ classes }) => {
